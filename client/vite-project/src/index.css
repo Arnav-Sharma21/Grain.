@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Uncut Sans";
+  src: url("./assets/fonts/UncutSans-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400 500;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: url("./assets/fonts/NyghtSerif-Light.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300 400;
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: url("./assets/fonts/NyghtSerif-LightItalic.woff2") format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 300 400;
+}
+
+@theme {
+  --font-sans: "Uncut Sans", "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Space Mono", "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Martian Mono", monospace;
+  --font-serif: "Nyght Serif", Georgia, serif;
+}
+
+:root {
+  font-family: "Uncut Sans", "Space Grotesk", "Inter", sans-serif;
+  background-color: #090909;
+  color: #FFFFFF;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #E60000;
+  color: #FFFFFF;
+}
+
+/* Swiss Red Accent */
+.text-swiss-red {
+  color: #E60000;
+}
+.bg-swiss-red {
+  background-color: #E60000;
+}
+.border-swiss-red {
+  border-color: #E60000;
+}
+
+/* Display typography */
+.font-display {
+  font-family: "Martian Mono", monospace;
+}
+
+.font-serif-irregular {
+  font-family: "Nyght Serif", Georgia, serif;
+}
+
+.font-uncut {
+  font-family: "Uncut Sans", sans-serif;
+}
+
+/* Swiss Editorial Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Full-bleed container utility */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+::-webkit-scrollbar-thumb {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E60000;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* 3D Hardware acceleration utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Swiss Geometric Circles Keyframe Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes orbit-dot {
+  from {
+    transform: rotate(0deg) translateX(70px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(70px) rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 35s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 24s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.animate-orbit-dot {
+  animation: orbit-dot 16s linear infinite;
+}
